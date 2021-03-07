@@ -17,6 +17,8 @@ public class SauceDemoLoginSuiteTest {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
         driver.get(Urls.SAUCER_DEMO_LOGIN_PAGE);
     }
 
