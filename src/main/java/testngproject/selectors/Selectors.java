@@ -5,4 +5,5 @@ public class Selectors {
     }
 
     public static final String LOGIN_BUTTON = "login-button";
+    public static final String ERROR_MESSAGE = "[data-test=\"error\"]";
 }
