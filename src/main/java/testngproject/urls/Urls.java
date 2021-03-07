@@ -4,5 +4,5 @@ public class Urls {
     private Urls() {
     }
 
-    public static final String SAUCER_DEMO_LOGIN_PAGE = "https://www.saucedemo.com/";
+    public static final String SAUCE_DEMO_LOGIN_PAGE = "https://www.saucedemo.com/";
 }
