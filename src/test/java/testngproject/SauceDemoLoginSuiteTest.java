@@ -11,7 +11,7 @@ import testngproject.urls.Urls;
 import testngproject.browser.BrowserNames;
 
 public class SauceDemoLoginSuiteTest extends Browser {
-    String actualErrorMessage, expectedErrorMessage;
+    String actualErrorMessage;
 
     @BeforeMethod
     public void setUp() {
@@ -29,10 +29,28 @@ public class SauceDemoLoginSuiteTest extends Browser {
 
     @Test
     public void clickOnTheLoginButtonWithEmptyForm() {
-        expectedErrorMessage = "Epic sadface: Username is required";
         findElementById(Selectors.LOGIN_BUTTON).click();
         actualErrorMessage = findElementByCssSelector(Selectors.ERROR_MESSAGE).getText();
-        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
+        Assert.assertEquals(actualErrorMessage,
+                Selectors.ERROR_MESSAGE_WHEN_CLICKED_ON_THE_LOGIN_BUTTON_WITH_EMPTY_FORM);
+    }
+
+    @Test
+    public void clickOnTheLoginButtonWithOnlyUsernamePopulated() {
+        findElementByCssSelector(Selectors.USERNAME_FIELD).sendKeys(Selectors.DUMMY_USERNAME);
+        findElementById(Selectors.LOGIN_BUTTON).click();
+        actualErrorMessage = findElementByCssSelector(Selectors.ERROR_MESSAGE).getText();
+        Assert.assertEquals(actualErrorMessage,
+                Selectors.ERROR_MESSAGE_WHEN_CLICKED_ON_THE_LOGIN_BUTTON_WITH_EMPTY_PASSWORD_FIELD);
+    }
+
+    @Test
+    public void clickOnTheLoginButtonWithOnlyPasswordPopulated() {
+        findElementByCssSelector(Selectors.PASSWORD_FIELD).sendKeys(Selectors.DUMMY_PASSWORD);
+        findElementById(Selectors.LOGIN_BUTTON).click();
+        actualErrorMessage = findElementByCssSelector(Selectors.ERROR_MESSAGE).getText();
+        Assert.assertEquals(actualErrorMessage,
+                Selectors.ERROR_MESSAGE_WHEN_CLICKED_ON_THE_LOGIN_BUTTON_WITH_EMPTY_USERNAME_FIELD);
     }
 
     @AfterMethod
