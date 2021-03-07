@@ -1,6 +1,8 @@
 package testngproject.browser;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -27,5 +29,25 @@ public class Browser {
     public void tearDownBrowser() {
         driver.close();
         driver.quit();
+    }
+
+    public void maximizeWindow() {
+        driver.manage().window().maximize();
+    }
+
+    public void deleteAllCookies() {
+        driver.manage().deleteAllCookies();
+    }
+
+    public void getUrl(String url) {
+        driver.get(url);
+    }
+
+    public WebElement findElementByCssSelector(String selector) {
+        return driver.findElement(By.cssSelector(selector));
+    }
+
+    public WebElement findElementById(String id) {
+        return driver.findElement(By.id(id));
     }
 }
