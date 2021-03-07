@@ -10,7 +10,7 @@ import testngproject.selectors.Selectors;
 import testngproject.urls.Urls;
 import testngproject.browser.BrowserNames;
 
-public class SauceDemoLoginSuiteTest extends Browser {
+public class SauceDemoLoginPageTest extends Browser {
     String actualErrorMessage;
 
     @BeforeMethod
