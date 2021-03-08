@@ -6,6 +6,7 @@ public class Selectors {
 
     // Elements
     public static final String LOGIN_BUTTON = "login-button";
+    public static final String ERROR_BUTTON = "button.error-button";
     public static final String ERROR_MESSAGE = "[data-test=\"error\"]";
     public static final String USERNAME_FIELD = "[data-test=\"username\"]";
     public static final String PASSWORD_FIELD = "[data-test=\"password\"]";
