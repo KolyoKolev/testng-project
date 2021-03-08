@@ -47,6 +47,10 @@ public class Browser {
         return driver.findElement(By.cssSelector(selector));
     }
 
+    public boolean elementNotPresent(String selector) {
+        return driver.findElements(By.cssSelector(selector)).isEmpty();
+    }
+
     public WebElement findElementById(String id) {
         return driver.findElement(By.id(id));
     }
