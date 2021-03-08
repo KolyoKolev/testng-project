@@ -62,6 +62,19 @@ public class SauceDemoLoginPageTest extends Browser {
         Assert.assertEquals(actualErrorMessage, Selectors.ERROR_MESSAGE_FOR_WRONG_CREDENTIALS);
     }
 
+    @Test
+    public void clickOnTheErrorButton() {
+        findElementByCssSelector(Selectors.USERNAME_FIELD).sendKeys(Selectors.DUMMY_USERNAME);
+        findElementById(Selectors.LOGIN_BUTTON).click();
+        if (findElementByCssSelector(Selectors.ERROR_BUTTON).isDisplayed()) {
+            findElementByCssSelector(Selectors.ERROR_BUTTON).click();
+            // Boolean isPresent = isPresent(selector)
+            Assert.assertTrue(elementNotPresent(Selectors.ERROR_BUTTON));
+        } else {
+            throw new Error("Unexpected behavior: Error button is displayed");
+        }
+    }
+
     @AfterMethod
     public void tearDown() {
         tearDownBrowser();
