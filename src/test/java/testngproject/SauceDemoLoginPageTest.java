@@ -53,6 +53,15 @@ public class SauceDemoLoginPageTest extends Browser {
                 Selectors.ERROR_MESSAGE_WHEN_CLICKED_ON_THE_LOGIN_BUTTON_WITH_EMPTY_USERNAME_FIELD);
     }
 
+    @Test
+    public void clickOnTheLoginButtonWithWrongUsernameAndPassword() {
+        findElementByCssSelector(Selectors.USERNAME_FIELD).sendKeys(Selectors.DUMMY_USERNAME);
+        findElementByCssSelector(Selectors.PASSWORD_FIELD).sendKeys(Selectors.DUMMY_PASSWORD);
+        findElementById(Selectors.LOGIN_BUTTON).click();
+        actualErrorMessage = findElementByCssSelector(Selectors.ERROR_MESSAGE).getText();
+        Assert.assertEquals(actualErrorMessage, Selectors.ERROR_MESSAGE_FOR_WRONG_CREDENTIALS);
+    }
+
     @AfterMethod
     public void tearDown() {
         tearDownBrowser();
